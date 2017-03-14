@@ -1,0 +1,27 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  name: rails-prometheus
+  namespace: monitoring
+spec:
+  replicas: 1
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        service: rails-promtheus
+        tier: frontend
+    spec:
+      containers:
+      - name: web
+        image: johncena/rails-prometheus
+        args:
+        - bin/start
+        env:
+        - name: env
+          value: "var"
+        ports:
+        - containerPort: 80
+          protocol: TCP
+      restartPolicy: Always
