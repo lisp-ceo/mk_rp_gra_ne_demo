@@ -125,5 +125,5 @@ data:
     - job_name: 'rails-prometheus'
       scheme: http
       static_configs:
-        - targets: ['_http._tcp.rails-prometheus.monitoring.svc.cluster.local']
+        - targets: ['rails-prometheus.monitoring.svc.cluster.local']
 

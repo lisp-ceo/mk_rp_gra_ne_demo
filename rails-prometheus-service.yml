@@ -3,17 +3,11 @@ kind: Service
 metadata:
   name: rails-prometheus
   namespace: monitoring
-  creationTimestamp: null
-  labels:
-    service: rails-prometheus
-    tier: front-end
 spec:
-  type: LoadBalancer
   ports:
-  - name: "http"
-    port: 80
+  - port: 80
+    protocol: TCP
     targetPort: 80
-    protocol: "TCP"
   selector:
-    service: rails-prometheus
-    tier: front-end
+    name: rails-prometheus
+  type: NodePort
